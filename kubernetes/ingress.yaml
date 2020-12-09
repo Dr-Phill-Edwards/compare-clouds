@@ -1,0 +1,11 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: messages-ingress
+  annotations:
+    ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: $1
+spec:
+  backend:
+    serviceName: messages-service
+    servicePort: 8000
